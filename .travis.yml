@@ -1,5 +1,13 @@
-sudo: false
+notifications:
+  email: false
+  slack:
+    on_success: never
+Sudo: false
 language: ruby
 rvm:
+  - 2.3.6
+  - 2.4.3
   - 2.5.0
-before_install: gem install bundler -v 1.16.1
+  - ruby-head
+before_install: gem install bundler
+script: bundle exec rake test
