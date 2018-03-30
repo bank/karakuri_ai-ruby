@@ -10,10 +10,11 @@ module KarakuriAi
   end
 
   class Config
-    attr_accessor :api_key
+    attr_accessor :api_key, :account
 
     def initialize
       @api_key = nil
+      @account = nil
     end
   end
 end
