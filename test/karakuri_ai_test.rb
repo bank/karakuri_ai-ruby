@@ -8,8 +8,10 @@ class KarakuriAiTest < Minitest::Test
   def test_it_can_configure
     KarakuriAi.configure do |config|
       config.api_key = 'something'
+      config.account = 'my-account'
     end
 
     assert_equal 'something', KarakuriAi.config.api_key
+    assert_equal 'my-account', KarakuriAi.config.account
   end
 end
