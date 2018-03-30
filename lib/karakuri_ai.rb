@@ -1,4 +1,6 @@
 require "karakuri_ai/version"
+require 'karakuri_ai/client'
+require 'karakuri_ai/reply'
 
 module KarakuriAi
   def self.configure
