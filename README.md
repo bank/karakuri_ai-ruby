@@ -22,7 +22,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+KakakuriAi.configure do |config|
+  config.api_key = 'your bearer token'
+  config.account = 'your subdomain of karakuri.ai'
+end
+
+client = KarakuriAi::Client.new
+
+# Or
+client = KarakuriAi::Client.new(api_key: 'your bearer token', account: 'your subdomain of karakuri.ai')
+
+resp = client.reply(query: 'message')
+resp.most_confident_text
+# => 'confident answer from karakuri.ai'
+```
 
 ## Development
 
@@ -32,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/karakuri_ai.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bank/karakuri_ai-ruby.
 
 ## License
 
