@@ -24,4 +24,16 @@ class KarakuriAiClientTest < Minitest::Test
     client = KarakuriAi::Client.new(api_key: 'test', account: 'test')
     assert_equal KarakuriAi::Reply, client.reply(query: 'test').class
   end
+
+  def test_reply_raises_exception_when_wrong_auth
+    stub_request(
+      :post,
+      'https://test.karakuri.ai/api/ext/reply'
+    ).to_return(status: 401)
+
+    client = KarakuriAi::Client.new(api_key: '', account: 'test')
+    assert_raises(Net::HTTPServerException) do
+      client.reply(query: 'test')
+    end
+  end
 end

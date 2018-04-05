@@ -21,6 +21,7 @@ module KarakuriAi
         }.to_json,
         header
       )
+      request.value
       Reply.new(json: request.body, count: count)
     end
 
