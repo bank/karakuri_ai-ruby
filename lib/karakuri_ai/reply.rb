@@ -12,5 +12,15 @@ module KarakuriAi
     def count
       @count
     end
+
+    def most_confident_text
+      if count == 1
+        @body[:card][:answers][0][:text]
+      else
+        @body.sort { |a, b|
+          b[:confidence] <=> a[:confidence]
+        }[0][:card][:answers][0][:text]
+      end
+    end
   end
 end
