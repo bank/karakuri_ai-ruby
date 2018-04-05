@@ -4,9 +4,10 @@ require 'uri'
 
 module KarakuriAi
   class Client
-    def initialize
-      @api_key = KarakuriAi.config.api_key
-      uri = URI.parse("https://#{KarakuriAi.config.account}.karakuri.ai")
+    def initialize(api_key: nil, account: nil)
+      @api_key = api_key || KarakuriAi.config.api_key
+      @account = account || KarakuriAi.config.account
+      uri = URI.parse("https://#{@account}.karakuri.ai")
       @client = Net::HTTP.new(uri.host, uri.port)
       @client.use_ssl = true
     end
