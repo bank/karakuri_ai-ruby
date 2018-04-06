@@ -24,7 +24,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-KakakuriAi.configure do |config|
+KarakuriAi.configure do |config|
   config.api_key = 'your bearer token'
   config.account = 'your subdomain of karakuri.ai'
 end
